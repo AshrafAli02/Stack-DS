@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack_Console", "Stack_Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackDS", "StackDS\StackDS.csproj", "{74847075-9009-4355-9342-0034D1953574}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack_Excercise", "Stack_Excercise\Stack_Excercise.csproj", "{1EA4F093-34F9-4F0B-8F27-28AC410FDC28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack_Test_String", "Stack_Test_String\Stack_Test_String.csproj", "{39436B16-078E-482F-8433-1AFE701A5A6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{74847075-9009-4355-9342-0034D1953574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74847075-9009-4355-9342-0034D1953574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74847075-9009-4355-9342-0034D1953574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA4F093-34F9-4F0B-8F27-28AC410FDC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA4F093-34F9-4F0B-8F27-28AC410FDC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA4F093-34F9-4F0B-8F27-28AC410FDC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA4F093-34F9-4F0B-8F27-28AC410FDC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39436B16-078E-482F-8433-1AFE701A5A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39436B16-078E-482F-8433-1AFE701A5A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39436B16-078E-482F-8433-1AFE701A5A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39436B16-078E-482F-8433-1AFE701A5A6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

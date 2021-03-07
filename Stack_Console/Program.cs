@@ -16,6 +16,7 @@ namespace Stack_Console
 
         static void Main(string[] args)
         {
+            
            
         }
         //public static string Print()
