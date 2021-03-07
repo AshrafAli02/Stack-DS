@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stack_Excercise
+namespace Balanced_bracket
 {
-    public class String_Stack
-    {
+   public class Balanced
+   {
         private int _count;
         private int _capacity;
         public string[] Stack_Data;
@@ -50,7 +50,7 @@ namespace Stack_Excercise
                 }
             }
         }
-        public String_Stack()
+        public Balanced()
         {
             Count = 0;
             this.Capacity = 5;
@@ -58,9 +58,9 @@ namespace Stack_Excercise
         }
         public void Push(char value)
         {
-            if (Count < Capacity && Isempty == false)
+            if (Count < Capacity)
             {
-                Stack_Data[Count++] =value.ToString();
+                Stack_Data[Count++] = value.ToString();
 
             }
             else
@@ -96,7 +96,7 @@ namespace Stack_Excercise
         }
         public string Printstring()
         {
-            string s ="";
+            string s = "";
             for (int i = Count - 1; i >= 0; i--)
             {
                 s += Stack_Data[i];
@@ -106,19 +106,30 @@ namespace Stack_Excercise
         public void Resize()
         {
             string[] newarray = new string[Capacity * 2];
-            Capacity =Capacity* 2;
+            Capacity = Capacity * 2;
             Array.Copy(Stack_Data, newarray, Count);
             Stack_Data = newarray;
         }
         public string Reverse_String(string word)
         {
-            for(int i=0;i<word.Length;i++)
+            for (int i = 0; i < word.Length; i++)
             {
                 char ch = word[i];
                 Push(ch);
 
             }
             return Printstring();
+        }
+        public bool Balaced()
+        {
+            if(Count==0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

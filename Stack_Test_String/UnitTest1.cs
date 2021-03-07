@@ -13,9 +13,9 @@ namespace Stack_Test_String
         public void Reverse()
         {
             //Arrange
-            string word = "ashraf";
+            string word = "ashra";
             //Act
-            String Expected = "farhsa";
+            String Expected = "arhsa";
             //Assert
             Assert.AreEqual(st.Reverse_String(word), Expected);
         }
