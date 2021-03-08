@@ -11,7 +11,6 @@ namespace Balanced_bracket
         private int _count;
         private int _capacity;
         public T[] Stack_Data;
-        private bool _isempty;
         public int Count
         {
             get
@@ -71,7 +70,7 @@ namespace Balanced_bracket
         }
         public void Pop()
         {
-            if (Isempty == false)
+            if (!Isempty)
             {
                 Peek();
                 Count--;
@@ -85,7 +84,7 @@ namespace Balanced_bracket
         }
         public T Peek()
         {
-            if (Isempty == false)
+            if (!Isempty)
             {
                 return Stack_Data[Count - 1];
             }
