@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace StackDS
 {
-    public class StackDs
+    public class StackDs<T>
     {
         private int _count;
         private int _capacity;
-        public int[] Stack_Data;
+        public T[] Stack_Data;
         private bool _isempty;
         public int Count
         {
@@ -19,10 +19,7 @@ namespace StackDS
                 return _count;
 
             }
-            set
-            {
-                _count = value;
-            }
+            
 
         }
         public int Capacity
@@ -31,10 +28,7 @@ namespace StackDS
             {
                 return _capacity;
             }
-            set
-            {
-                _capacity = value;
-            }
+            
         }
         public bool Isempty
         {
@@ -52,19 +46,19 @@ namespace StackDS
         }
 
 
-        public StackDs()
+        public StackDs(int Capacity)
         {
-            Count = 0;
-            this.Capacity = 5;
-            Stack_Data = new int[Capacity];
+            this._capacity = Capacity;
+            Stack_Data = new T[_capacity];
+            _count = 0;
         }
 
 
-        public void Push(int value)
+        public void Push(T value)
         {
-            if (Count < Capacity && Isempty == false)
+            if (_count < _capacity && Isempty == false)
             {
-                Stack_Data[Count++] = value;
+                Stack_Data[_count++] = value;
 
             }
             else
@@ -78,7 +72,7 @@ namespace StackDS
             if (Isempty == false)
             {
                 Peek();
-                Stack_Data[Count--] = 0;
+                _count--;
 
             }
             else
@@ -87,7 +81,7 @@ namespace StackDS
             }
 
         }
-        public int Peek()
+        public T Peek()
         {
             if (Isempty == false)
             {
@@ -109,8 +103,8 @@ namespace StackDS
         }
         public void Resize()
         {
-            int[] newarray = new int[Capacity * 2];
-            this.Capacity *= 2;
+            T[] newarray = new T[Capacity * 2];
+            _capacity = _capacity * 2;
             Stack_Data = newarray;
         }
     }

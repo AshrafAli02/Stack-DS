@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Balanced_bracket
 {
-   public class Balanced
+   public class Balanced<T>
    {
         private int _count;
         private int _capacity;
-        public string[] Stack_Data;
+        public T[] Stack_Data;
         private bool _isempty;
         public int Count
         {
@@ -54,13 +54,13 @@ namespace Balanced_bracket
         {
             Count = 0;
             this.Capacity = 5;
-            Stack_Data = new string[Capacity];
+            Stack_Data = new T[Capacity];
         }
-        public void Push(char value)
+        public void Push(T value)
         {
             if (Count < Capacity)
             {
-                Stack_Data[Count++] = value.ToString();
+                Stack_Data[Count++] = value;
 
             }
             else
@@ -74,7 +74,7 @@ namespace Balanced_bracket
             if (Isempty == false)
             {
                 Peek();
-                Stack_Data[Count--] = null;
+                Count--;
 
             }
             else
@@ -83,7 +83,7 @@ namespace Balanced_bracket
             }
 
         }
-        public string Peek()
+        public T Peek()
         {
             if (Isempty == false)
             {
@@ -96,40 +96,22 @@ namespace Balanced_bracket
         }
         public string Printstring()
         {
-            string s = "";
+            StringBuilder sb = new StringBuilder();
             for (int i = Count - 1; i >= 0; i--)
             {
-                s += Stack_Data[i];
+                sb.Append(Stack_Data[i]);
             }
-            return s.ToString();
+            return sb.ToString();
         }
         public void Resize()
         {
-            string[] newarray = new string[Capacity * 2];
+            T[] newarray = new T[Capacity * 2];
             Capacity = Capacity * 2;
             Array.Copy(Stack_Data, newarray, Count);
             Stack_Data = newarray;
         }
-        public string Reverse_String(string word)
-        {
-            for (int i = 0; i < word.Length; i++)
-            {
-                char ch = word[i];
-                Push(ch);
-
-            }
-            return Printstring();
-        }
-        public bool Balaced()
-        {
-            if(Count==0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
+        
+        
     }
 }

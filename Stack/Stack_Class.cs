@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    public class Stack_Class
+    public class Stack_Class<T>
     {
 
         private int _count;
         private int _capacity;
-        public int[] Stack_Data;
+        public T[] Stack_Data;
         private bool _isempty;
         public int Count
         {
@@ -57,13 +57,13 @@ namespace Stack
         {
             Count = 0;
             this.Capacity = Capacity;
-            Stack_Data = new int[Capacity];
+            Stack_Data = new T[Capacity];
         }
         
         
-        public void Push(int value)
+        public void Push(T value)
         {
-            if(Count<Capacity&&Isempty==false)
+            if(Count<Capacity)
             {
                 Stack_Data[Count++] = value;
                 
@@ -78,7 +78,7 @@ namespace Stack
             if (Isempty==false)
             {
                 Peek();
-                Stack_Data[Count--] = 0;
+                Count--;
                 
             }
             else
@@ -87,7 +87,7 @@ namespace Stack
             }
 
         }
-        public int Peek()
+        public T Peek()
         {
           if(Isempty==false)
             {
