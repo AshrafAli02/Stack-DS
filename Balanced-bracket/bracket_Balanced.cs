@@ -9,10 +9,10 @@ namespace Balanced_bracket
 {
     class bracket_Balanced
     {
-        //public static List<string> Ex1=new List<string>{"(","[","{","<"};
-        //public static List<string> Ex2 = new List<string> { ")", "]", "}", ">" };
-        //public static List<string> Symbol = new List<string> { "+", "-", "*", "%" };
-       //public static Balanced<char> my = new Balanced<char>();
+        public static List<char> Ex1=new List<char>{'(','[','{','<'};
+        public static List<char> Ex2 = new List<char> { ')', ']', '}', '>' };
+        public static List<char> Symbol = new List<char> { '+', '-', '*', '%','/' };
+       public static Balanced<char> my = new Balanced<char>();
         static void Main(string[] args)
         {
 
@@ -23,15 +23,31 @@ namespace Balanced_bracket
             //    my.Push(ch);
             //}
             //Console.WriteLine(my.Printstring());
-            //string s = "((a)+(b))";
+            //string s = "((a)+(b])";
             //Console.WriteLine(s+" : "+CheckBracket(s));
-            //Console.WriteLine(Calculation(1,5,'+'));
-            Console.WriteLine(ExpressionEvaluate("(1 + ((2 + 3) * (4 * 5)))"));
+            //Console.WriteLine(Calculation(5,2,'%'));
+            //Console.WriteLine(ExpressionEvaluate("(10 + ((22 + 3) * (6+2)))"));
+            //Console.WriteLine(ExpressionEvaluate("(10+14)"));
             //char ch = '3';
             //int a = int.Parse(ch.ToString());
             //Console.WriteLine(a);
             //Console.WriteLine(Isnumber('8'));
             //Console.WriteLine(Isnumber('a'));
+            //string s = "10";
+            //string ch = null;
+            //int i = 0;
+            //while(i<s.Length)
+            //{
+               
+            //    while(Isnumber(s[i])==true)
+            //    {
+            //        ch += s[i];
+                    
+            //    }
+            //    i++;
+            //}
+            //int number = int.Parse(ch.ToString());
+            //Console.WriteLine(number);
            
             
         }
@@ -41,11 +57,11 @@ namespace Balanced_bracket
             for (int i = 0; i < Bracket.Length; i++)
             {
                 char ch = Bracket[i];
-                if (ch == '(')
+                if (Ex1.Contains(ch))
                 {
                     my.Push(ch);
                 }
-                else if (ch == ')')
+                else if (Ex2.Contains(ch))
                 {
                     if (my.Isempty)
                     {
@@ -53,7 +69,14 @@ namespace Balanced_bracket
                     }
                     else
                     {
-                        my.Pop();
+                        if (Ex2.IndexOf(ch) == Ex1.IndexOf(my.Peek()))
+                        {
+                            my.Pop();
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
 
                 }
@@ -74,23 +97,29 @@ namespace Balanced_bracket
         {
             Balanced<int> NumberStack = new Balanced<int>();
             Balanced<char> ExpressionStack = new Balanced<char>();
+            string number = null;
             for(int i=0;i<Expression.Length;i++)
             {
                 char ch = Expression[i];
                 if (Isnumber(ch))
                 {
-                    int a = int.Parse(ch.ToString());
-                    NumberStack.Push(a);
+                    number += ch;
                 }
-                if(ch=='+'||ch=='-'||ch=='*'||ch=='/')
+                if(!Isnumber(ch)&&number!=null)
+                {
+                    int num = int.Parse(number);
+                    NumberStack.Push(num);
+                    number = null;
+                }
+                if(Symbol.Contains(ch))
                 {
                     ExpressionStack.Push(ch);
                 }
                 if(ch==')')
                 {
-                    int n1 =NumberStack.Peek();
-                    NumberStack.Pop();
                     int n2 =NumberStack.Peek();
+                    NumberStack.Pop();
+                    int n1 =NumberStack.Peek();
                     NumberStack.Pop();
                     char ch1 = ExpressionStack.Peek();
                     ExpressionStack.Pop();
@@ -113,9 +142,10 @@ namespace Balanced_bracket
                     return num1 - num2;
                 case '*':
                     return num1 * num2;
+                case '%':
+                    return num1 % num2;
                 case '/':
                     return num1 / num2;
-
             }
             return 0;
         }
